@@ -184,5 +184,6 @@ extension CurrencyUITextFieldDelegate {
         }
         
         textField.text = formatter.formattedStringWithAdjustedDecimalSeparator(from: updatedText)
+        textField.sendActions(for: .editingChanged)
     }
 }
