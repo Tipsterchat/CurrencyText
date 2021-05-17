@@ -132,10 +132,12 @@ extension CurrencyUITextFieldDelegate {
         
         if string == .negativeSymbol && textField.text?.isEmpty == true {
             textField.text = .negativeSymbol
+            textField.sendActions(for: .editingChanged)
         } else if range.lowerBound == 0 && string == .negativeSymbol &&
             textField.text?.contains(String.negativeSymbol) == false {
             
             textField.text = .negativeSymbol + (textField.text ?? "")
+            textField.sendActions(for: .editingChanged)
         }
     }
     
@@ -157,6 +159,7 @@ extension CurrencyUITextFieldDelegate {
             } else {
                 textField.text = formatter.formattedStringWithAdjustedDecimalSeparator(from: text)
             }
+            textField.sendActions(for: .editingChanged)
         }
     }
     
